@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>PAD signature</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <!--link rel="stylesheet" href="style/browser.css" type="text/css"-->
+    <!--script defer src="js/browser.js"></script-->
+  	<style>
+  		html, body {
+  			padding: 0;
+  			margin: 0;
+  			width: 100%;
+  			height: 100%;
+  			font-size: 10px;
+  		}
+  		div#main_char {
+  			margin: 0;
+  			background: black url(images/Pet694.png) no-repeat top right;
+  			background-size: 70%;
+  			width: 100%;
+  			height: 60rem;
+  			position: relative;
+  			padding: 2.5rem;
+  			min-width: 102.4rem;
+  		}
+
+  		#account {
+  			color: white;
+  		}
+
+  		#id {
+  			color: #033555;
+  		}
+
+  		div#leaders {
+  			position: relative;
+  		}
+
+  		div#leaders > div {
+  			clear: both;
+  		}
+
+  		span.label {
+  			font-size: 1.1rem;
+  		}
+
+  		#leaders .icon {
+  			height: 10rem;
+  			width: 10rem;
+  			margin: 0.5rem;
+  			float: left;
+  			position: relative;
+  			background: url(default.png) no-repeat left top;
+  			background-size: 5rem 5rem;
+  		}
+
+  		#leaders .icon span.add {
+  			color: gold;
+  			font-weight: bold;
+  			font-size: 1.5rem;
+  			position: absolute;
+  		}
+
+  		#leaders .icon span.lv {
+  			color: silver;
+  			font-weight: bold;
+  			font-size: 1.5rem;
+  			position: absolute;
+  		}
+
+  		#r-leaders .icon {
+  			margin-right: 3rem;
+  		}
+
+  		#r-leaders .icon span.add {
+  			right: -1rem;
+  			top: 2rem;
+  		}
+
+  		#r-leaders .icon span.lv {
+  			right: -1rem;
+  			top: 0;
+  		}
+
+  		#s-leaders .icon,
+  		#m-leaders .icon {
+  			width: 5rem;
+  			height: 9rem;
+  		}
+
+  		#s-leaders .icon span.lv,
+  		#m-leaders .icon span.lv {
+  			left: 0rem;
+  			bottom: 2rem;
+  		}
+
+  		#s-leaders .icon span.add,
+  		#m-leaders .icon span.add {
+  			left: 0rem;
+  			bottom: 0rem;
+  		}
+
+  		#resident1.icon {
+  			background: url(images/188icon.png) no-repeat left top;
+  		}
+
+  		#resident2.icon {
+  			background: url(images/694icon.png) no-repeat left top;
+  		}
+
+  		#resident3.icon {
+  			background: url(images/646icon.png) no-repeat left top;
+  		}
+
+  		#resident4.icon {
+  			background: url(images/597icon.png) no-repeat left top;
+  		}
+  	</style>
+  </head>
+
+  <body>
+  	<div id="main_char">
+  		<h1>Puzzle & Dragon</h1>
+  		<h2 id="account">
+  			150, 105, 569
+  		</h2>
+  		<h2 id="id">
+  			Alive@PTT
+  			<span class="btn btn-primary">
+  				Rank 202
+  			</span>
+  		</h2>
+  		<div id="leaders">
+	  		<div id="r-leaders">
+	  			<div>
+	  				<span class="label label-info">Resident leaders/Favorite leaders</span>
+	  			</div>
+	  			<div id="resident1" class="icon large">
+	  				<span class="add">+99</span>
+	  				<span class="lv">Lv99</span>
+	  			</div>
+	  			<div id="resident2" class="icon large">
+	  				<span class="add">+1</span>
+	  				<span class="lv">Lv99</span>
+	  			</div>
+	  			<div id="resident3" class="icon large">
+	  				<span class="add">+1</span>
+	  				<span class="lv">Lv95</span>
+	  			</div>
+	  			<div id="resident4" class="icon large">
+	  				<span class="add">+0</span>
+	  				<span class="lv">Lv99</span>
+	  			</div>
+	  		</div>
+	  		<div id="s-leaders">
+	  			<div>
+	  				<span class="label label-warning">Support leaders</span>
+	  			</div>
+	  		</div>
+	  		<div id="m-leaders">
+	  			<div>
+	  				<span class="label label-default">Misc leaders</span>
+	  			</div>
+	  		</div>
+  		</div>
+  	</div>
+
+  	<script>
+  		var resident = [
+  			{
+  				id: '188'
+  			}
+  		];
+
+  		var support = [
+  			{
+  				id: '241',
+  				nick: '木印',
+  				level: 99,
+  				plus: 86
+  			},
+  			{
+  				id: '363',
+  				nick: '綠奧',
+  				level: 74,
+  				plus: 6
+  			},
+  			{
+  				id: '389',
+  				nick: '暗戰',
+  				level: 60,
+  				plus: 3
+  			},
+  			{
+  				id: '391',
+  				nick: '暗海',
+  				level: 71,
+  				plus: 3
+  			},
+  			{
+  				id: '393',
+  				nick: '暗豐',
+  				level: 70,
+  				plus: 1
+  			},
+  			{
+  				id: '395',
+  				nick: '暗維',
+  				level: 73,
+  				plus: 1
+  			},
+  			{
+  				id: '396',
+  				nick: '暗哈',
+  				level: 98,
+  				plus: 3
+  			},
+  			{
+  				id: '397',
+  				nick: '光哈',
+  				level: 93,
+  				plus: 0
+  			},
+  			{
+  				id: '654',
+  				nick: '綠盛',
+  				level: 45,
+  				plus: 2
+  			}
+  		];
+
+
+  		var misc = [
+  			{
+  				id: '491',
+  				nick: '火唉',
+  				level: 99,
+  				plus: 1
+  			},
+  			{
+  				id: '493',
+  				nick: '水唉',
+  				level: 54,
+  				plus: 4
+  			},
+  			{
+  				id: '566',
+  				nick: '大盜',
+  				level: 96,
+  				plus: 1
+  			},
+  			{
+  				id: '576',
+  				nick: '冥府',
+  				level: 99,
+  				plus: 16
+  			}
+  		];
+
+  		support.forEach(function(ele){
+  			$('#s-leaders').append(
+  				'<div class="icon" style="background-image: url(images/'+ele.id+'icon.png)">'+
+	  				'<span class="add">+'+ele.plus+'</span>'+
+	  				'<span class="lv">Lv'+ele.level+'</span>'+
+	  			'</div>');
+  		});
+
+  		misc.forEach(function(ele){
+  			$('#m-leaders').append(
+  				'<div class="icon" style="background-image: url(images/'+ele.id+'icon.png)">'+
+	  				'<span class="add">+'+ele.plus+'</span>'+
+	  				'<span class="lv">Lv'+ele.level+'</span>'+
+	  			'</div>');
+  		});
+
+  	</script>
+  </body>
+
+</html>
