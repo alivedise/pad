@@ -1,74 +1,282 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Pad : PaD signature" />
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>PAD signature</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <!--link rel="stylesheet" href="style/browser.css" type="text/css"-->
+    <!--script defer src="js/browser.js"></script-->
+  	<style>
+  		html, body {
+  			padding: 0;
+  			margin: 0;
+  			width: 100%;
+  			height: 100%;
+  			font-size: 10px;
+  		}
+  		div#main_char {
+  			margin: 0;
+  			background: black url(images/Pet694.png) no-repeat top right;
+  			background-size: 70%;
+  			width: 100%;
+  			height: 60rem;
+  			position: relative;
+  			padding: 2.5rem;
+  			min-width: 102.4rem;
+  		}
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  		#account {
+  			color: white;
+  		}
 
-    <title>Pad</title>
+  		#id {
+  			color: #033555;
+  		}
+
+  		div#leaders {
+  			position: relative;
+  		}
+
+  		div#leaders > div {
+  			clear: both;
+  		}
+
+  		span.label {
+  			font-size: 1.1rem;
+  		}
+
+  		#leaders .icon {
+  			height: 10rem;
+  			width: 10rem;
+  			margin: 0.5rem;
+  			float: left;
+  			position: relative;
+  			background: url(default.png) no-repeat left top;
+  			background-size: 5rem 5rem;
+  		}
+
+  		#leaders .icon span.add {
+  			color: gold;
+  			font-weight: bold;
+  			font-size: 1.5rem;
+  			position: absolute;
+  		}
+
+  		#leaders .icon span.lv {
+  			color: silver;
+  			font-weight: bold;
+  			font-size: 1.5rem;
+  			position: absolute;
+  		}
+
+  		#r-leaders .icon {
+  			margin-right: 3rem;
+  		}
+
+  		#r-leaders .icon span.add {
+  			right: -1rem;
+  			top: 2rem;
+  		}
+
+  		#r-leaders .icon span.lv {
+  			right: -1rem;
+  			top: 0;
+  		}
+
+  		#s-leaders .icon,
+  		#m-leaders .icon {
+  			width: 5rem;
+  			height: 9rem;
+  		}
+
+  		#s-leaders .icon span.lv,
+  		#m-leaders .icon span.lv {
+  			left: 0rem;
+  			bottom: 2rem;
+  		}
+
+  		#s-leaders .icon span.add,
+  		#m-leaders .icon span.add {
+  			left: 0rem;
+  			bottom: 0rem;
+  		}
+
+  		#resident1.icon {
+  			background: url(images/188icon.png) no-repeat left top;
+  		}
+
+  		#resident2.icon {
+  			background: url(images/694icon.png) no-repeat left top;
+  		}
+
+  		#resident3.icon {
+  			background: url(images/646icon.png) no-repeat left top;
+  		}
+
+  		#resident4.icon {
+  			background: url(images/597icon.png) no-repeat left top;
+  		}
+  	</style>
   </head>
 
   <body>
+  	<div id="main_char">
+  		<h1>Puzzle & Dragon</h1>
+  		<h2 id="account">
+  			150, 105, 569
+  		</h2>
+  		<h2 id="id">
+  			Alive@PTT
+  			<span class="btn btn-primary">
+  				Rank 202
+  			</span>
+  		</h2>
+  		<div id="leaders">
+	  		<div id="r-leaders">
+	  			<div>
+	  				<span class="label label-info">Resident leaders/Favorite leaders</span>
+	  			</div>
+	  			<div id="resident1" class="icon large">
+	  				<span class="add">+99</span>
+	  				<span class="lv">Lv99</span>
+	  			</div>
+	  			<div id="resident2" class="icon large">
+	  				<span class="add">+1</span>
+	  				<span class="lv">Lv99</span>
+	  			</div>
+	  			<div id="resident3" class="icon large">
+	  				<span class="add">+1</span>
+	  				<span class="lv">Lv95</span>
+	  			</div>
+	  			<div id="resident4" class="icon large">
+	  				<span class="add">+0</span>
+	  				<span class="lv">Lv99</span>
+	  			</div>
+	  		</div>
+	  		<div id="s-leaders">
+	  			<div>
+	  				<span class="label label-warning">Support leaders</span>
+	  			</div>
+	  		</div>
+	  		<div id="m-leaders">
+	  			<div>
+	  				<span class="label label-default">Misc leaders</span>
+	  			</div>
+	  		</div>
+  		</div>
+  	</div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/alivedise/pad">View on GitHub</a>
+  	<script>
+  		var resident = [
+  			{
+  				id: '188'
+  			}
+  		];
 
-          <h1 id="project_title">Pad</h1>
-          <h2 id="project_tagline">PaD signature</h2>
+  		var support = [
+  			{
+  				id: '241',
+  				nick: '木印',
+  				level: 99,
+  				plus: 86
+  			},
+  			{
+  				id: '363',
+  				nick: '綠奧',
+  				level: 74,
+  				plus: 6
+  			},
+  			{
+  				id: '389',
+  				nick: '暗戰',
+  				level: 60,
+  				plus: 3
+  			},
+  			{
+  				id: '391',
+  				nick: '暗海',
+  				level: 71,
+  				plus: 3
+  			},
+  			{
+  				id: '393',
+  				nick: '暗豐',
+  				level: 70,
+  				plus: 1
+  			},
+  			{
+  				id: '395',
+  				nick: '暗維',
+  				level: 73,
+  				plus: 1
+  			},
+  			{
+  				id: '396',
+  				nick: '暗哈',
+  				level: 98,
+  				plus: 3
+  			},
+  			{
+  				id: '397',
+  				nick: '光哈',
+  				level: 93,
+  				plus: 0
+  			},
+  			{
+  				id: '654',
+  				nick: '綠盛',
+  				level: 45,
+  				plus: 2
+  			}
+  		];
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/alivedise/pad/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/alivedise/pad/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+  		var misc = [
+  			{
+  				id: '491',
+  				nick: '火唉',
+  				level: 99,
+  				plus: 1
+  			},
+  			{
+  				id: '493',
+  				nick: '水唉',
+  				level: 54,
+  				plus: 4
+  			},
+  			{
+  				id: '566',
+  				nick: '大盜',
+  				level: 96,
+  				plus: 1
+  			},
+  			{
+  				id: '576',
+  				nick: '冥府',
+  				level: 99,
+  				plus: 16
+  			}
+  		];
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+  		support.forEach(function(ele){
+  			$('#s-leaders').append(
+  				'<div class="icon" style="background-image: url(images/'+ele.id+'icon.png)">'+
+	  				'<span class="add">+'+ele.plus+'</span>'+
+	  				'<span class="lv">Lv'+ele.level+'</span>'+
+	  			'</div>');
+  		});
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+  		misc.forEach(function(ele){
+  			$('#m-leaders').append(
+  				'<div class="icon" style="background-image: url(images/'+ele.id+'icon.png)">'+
+	  				'<span class="add">+'+ele.plus+'</span>'+
+	  				'<span class="lv">Lv'+ele.level+'</span>'+
+	  			'</div>');
+  		});
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Pad maintained by <a href="https://github.com/alivedise">alivedise</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+  	</script>
   </body>
+
 </html>
